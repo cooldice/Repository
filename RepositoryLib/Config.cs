@@ -4,23 +4,28 @@ using System.Text;
 
 namespace RepositoryLib
 {
-    class Config
+    public class Config
     {
-        public string IP { get { return this._ip; } }
+        static public string IP { get { return _ip; } }
 
-        public Config()
+        static public string RootPath { get { return _rootPath; } }
+
+        static Config()
         {
             _ip = "127.0.0.1";
+            _rootPath = _ip + @"\destination\";
         }
 
-        public bool Initialize(string ip)
+        static public bool Initialize(string ip, string rootPath)
         {
             // todo check valid ip
             _ip = ip;
+            _rootPath = ip + rootPath;
 
             return true;
         }
 
-        private string _ip;
+        static private string _ip;
+        static private string _rootPath;
     }
 }

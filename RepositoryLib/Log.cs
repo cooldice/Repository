@@ -32,6 +32,12 @@ namespace RepositoryLib
             Console.WriteLine(log);
         }
 
+        static public void Exception(Exception e)
+        {
+            string log = String.Format("[EXCEPTION]" + e.ToString());
+            Console.WriteLine(log);
+        }
+
         static private LOGLEVEL logLevel = LOGLEVEL.LOGLEVEL_NONE;
     }
 }
