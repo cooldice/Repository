@@ -9,6 +9,8 @@ namespace RepositoryClient
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine(Downloader.TEST);
+
+            RepositoryLib.Uploader.Upload(@"c:\temp\source\s.txt");
         }
     }
 }
