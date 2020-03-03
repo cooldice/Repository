@@ -31,4 +31,4 @@ Repository Lib
 Repository Client
 - 설치 경로
 
-test
+.
