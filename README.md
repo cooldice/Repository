@@ -26,12 +26,14 @@ Repository Server
 - Windows UNC 기준
 
 Repository Lib
-- upload / download
+- upload / download : single file
 
 Repository Client
 - 설치 경로
 
 ## Version 2
-TODO
+Repository Lib
+- upload / download : directory
+
 
 
