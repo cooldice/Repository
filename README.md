@@ -17,6 +17,10 @@ Repository를 구성하고 이를 upload / download하는 기능을 만든다.
 ## Repository Lib
 - Repository upload / download
 
+## Requirement
+- c#
+- windows 10
+
 ## Version 1
 Repository Server 
 - Windows UNC 기준
