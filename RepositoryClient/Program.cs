@@ -10,7 +10,7 @@ namespace RepositoryClient
             Console.WriteLine("Hello World!");
 
             Uploader.Upload(@"c:\temp\source\s.txt");
-            Downloader.Download(@"c:\temp\download");
+            Downloader.Download(@"c:\temp\download", "s.txt");
         }
     }
 }
