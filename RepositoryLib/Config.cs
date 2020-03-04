@@ -13,7 +13,7 @@ namespace RepositoryLib
         static Config()
         {
             _ip = "127.0.0.1";
-            _rootPath = @"\\" + _ip + @"\destination\";
+            _rootPath = @"\\" + _ip + @"\repository\";
         }
 
         static public bool Initialize(string ip, string rootPath)

@@ -18,8 +18,15 @@ Repository를 구성하고 이를 upload / download하는 기능을 만든다.
 - Repository upload / download
 
 ## Requirement
-- c#
+- c# 
+- Dotnet Core 2.1
 - windows 10
+
+## Sample
+/source : source file folder
+/repository : repository server folder. **공유 폴더로 설정 필요**
+/download : client download folder
+
 
 ## Version 1
 Repository Server 
