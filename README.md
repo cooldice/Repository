@@ -36,4 +36,9 @@ Repository Lib
 - upload / download : directory
 
 
-
+## NOTE
+### version 1
+lib init 및 instance 관리 부분 소흘
+class design이 잘못 되어서 다 singleton으로
+interface 정리를 안하고 시작
+upload/download를 위해서 uri가 필요한데 이것을 download하는 곳에서는 얻어올 곳이 없어서 하드 코딩
