@@ -22,10 +22,10 @@ namespace RepositoryLib
             }
 
             // download
-            string uriPath = Config.RootPath + uri;
+            string repositoryLocalPath = getRepositoryURITOLocalPath(uri);
             try
             {
-                File.Copy(uriPath, rootPath + uri);
+                File.Copy(repositoryLocalPath, rootPath + uri);
             }
             catch (Exception e)
             {
@@ -39,14 +39,22 @@ namespace RepositoryLib
 
         static private bool checkDirectory(string path)
         {
-            // todo impl
+            if (!Directory.Exists(path))
+                return false;
             return true;
         }
 
         static private bool checkURI(string uri)
         {
-            // todo impl
+            string path = getRepositoryURITOLocalPath(uri);
+            if (!File.Exists(path))
+                return false;
             return true;
+        }
+
+        static private string getRepositoryURITOLocalPath(string uri)
+        {
+            return Config.RootPath + uri;
         }
     }
 }
