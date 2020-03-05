@@ -26,6 +26,15 @@ Repository를 구성하고 이를 upload / download하는 기능을 만든다.
 /source : source file folder
 /repository : repository server folder. **공유 폴더로 설정 필요**
 /download : client download folder
+/repository, /download folder에는 .donotdel파일을 올려두어습니다.
+/source에는 s.txt 테스트 용도로 있습니다.
+
+## Usage
+- build Repository.sln
+- run
+- check success log
+- check file in sample/download
+- check file in sample/repository
 
 
 ## Version 1
