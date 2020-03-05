@@ -12,7 +12,7 @@ namespace RepositoryClient
             // set path
             _samplePath = @"..\..\..\..\sample\";
             _sourceRootPath = _samplePath + @"source\";
-            _repositoryRootPath = _samplePath + _repositoryRootFolderName;
+            _repositoryRootPath = _samplePath + _repositoryRootFolder;
             _downloadRootPath = _samplePath + @"download\";
 
             // cleanup download path & repository path files
@@ -29,7 +29,7 @@ namespace RepositoryClient
             string fname = "s.txt";
             string ip = "127.0.0.1";
 
-            RepositoryLib.Config.Initialize(ip, _repositoryRootFolderName);
+            RepositoryLib.Config.Initialize(ip, _repositoryRootFolder);
 
             if (!Uploader.Upload(_sourceRootPath + fname))
             {
@@ -65,6 +65,6 @@ namespace RepositoryClient
         static private string _downloadRootPath = "";
         static private string _sourceRootPath = "";
         static private string _repositoryRootPath = "";
-        static private string _repositoryRootFolderName = @"repository\";
+        static private string _repositoryRootFolder = @"repository\";
     }
 }
