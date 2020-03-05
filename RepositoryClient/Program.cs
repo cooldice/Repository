@@ -50,12 +50,13 @@ namespace RepositoryClient
         static void cleanup(string path)
         {
             string[] flist = System.IO.Directory.GetFiles(path);
-            foreach (string fname in flist)
+            foreach (string fpath in flist)
             {
+                string fname = System.IO.Path.GetFileName(fpath);
                 // .으로 시작하는 파일은 삭제하지 않는다.
-                if (fname[0] == '.')
+                if (fname.StartsWith("."))
                     continue;
-                System.IO.File.Delete(fname);
+                System.IO.File.Delete(fpath);
 //                Console.WriteLine("[TRACE], cleanup, file {0}", fname);
             }
         }
