@@ -9,30 +9,42 @@ namespace RepositoryClient
         {
             Console.WriteLine("Repository Client");
 
-            samplePath = @"..\..\..\..\sample\";
-            sourceRootPath = samplePath + @"source\";
-            repositoryRootPath = samplePath + @"repository\";
-            downloadRootPath = samplePath + @"download\";
+            // set path
+            _samplePath = @"..\..\..\..\sample\";
+            _sourceRootPath = _samplePath + @"source\";
+            _repositoryRootPath = _samplePath + _repositoryRootFolderName;
+            _downloadRootPath = _samplePath + @"download\";
 
             // cleanup download path & repository path files
             {
-                cleanup(downloadRootPath);
-                cleanup(repositoryRootPath);
+                cleanup(_downloadRootPath);
+                cleanup(_repositoryRootPath);
             }
 
-            if (!Uploader.Upload(sourceRootPath + @"s.txt"))
+            testSampleSingleFile();
+        }
+
+        static void testSampleSingleFile()
+        {
+            string fname = "s.txt";
+            string ip = "127.0.0.1";
+
+            RepositoryLib.Config.Initialize(ip, _repositoryRootFolderName);
+
+            if (!Uploader.Upload(_sourceRootPath + fname))
             {
                 Console.WriteLine("[ERROR], Uploader.Upload fail");
                 return;
             }
             Console.WriteLine("[DEBUG], Uploader.Upload success");
 
-            if (!Downloader.Download(downloadRootPath, @"s.txt"))
+            if (!Downloader.Download(_downloadRootPath, fname))
             {
                 Console.WriteLine("[ERROR], Downloader.Download fail");
                 return;
             }
             Console.WriteLine("[DEBUG], Downloader.Download success");
+
         }
 
         static void cleanup(string path)
@@ -40,14 +52,18 @@ namespace RepositoryClient
             string[] flist = System.IO.Directory.GetFiles(path);
             foreach (string fname in flist)
             {
+                // .으로 시작하는 파일은 삭제하지 않는다.
+                if (fname[0] == '.')
+                    continue;
                 System.IO.File.Delete(fname);
 //                Console.WriteLine("[TRACE], cleanup, file {0}", fname);
             }
         }
 
-        static private string samplePath = "";
-        static private string downloadRootPath = "";
-        static private string sourceRootPath = "";
-        static private string repositoryRootPath = "";
+        static private string _samplePath = "";
+        static private string _downloadRootPath = "";
+        static private string _sourceRootPath = "";
+        static private string _repositoryRootPath = "";
+        static private string _repositoryRootFolderName = @"repository\";
     }
 }
