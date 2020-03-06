@@ -9,6 +9,8 @@ namespace RepositoryClient
         {
             Console.WriteLine("Repository Client");
 
+            Log.Initialize(Log.LOGLEVEL.DEBUG);
+
             // set path
             _samplePath = @"..\..\..\..\sample\";
             _sourceRootPath = _samplePath + @"source\";
@@ -22,6 +24,8 @@ namespace RepositoryClient
             }
 
             testSampleSingleFile();
+
+            testSampleDirectory();
         }
 
         static void testSampleSingleFile()
@@ -33,17 +37,31 @@ namespace RepositoryClient
 
             if (!Uploader.Upload(_sourceRootPath + fname))
             {
-                Console.WriteLine("[ERROR], Uploader.Upload fail");
+                Log.Error("Uploader.Upload fail");
                 return;
             }
-            Console.WriteLine("[DEBUG], Uploader.Upload success");
+            Log.Debug("Uploader.Upload success");
 
             if (!Downloader.Download(_downloadRootPath, fname))
             {
-                Console.WriteLine("[ERROR], Downloader.Download fail");
+                Log.Error("Downloader.Download fail");
                 return;
             }
-            Console.WriteLine("[DEBUG], Downloader.Download success");
+            Log.Debug("Downloader.Download success");
+
+        }
+
+        static void testSampleDirectory()
+        {
+            string dirname = "dir";
+            string ip = "127.0.0.1";
+
+            RepositoryLib.Config.Initialize(ip, _repositoryRootFolder);
+
+            //if (!Uploader.Upload(_sourceRootPath + dirname))
+            //{
+            //    RepositoryLib.L
+            //}
 
         }
 
@@ -57,7 +75,7 @@ namespace RepositoryClient
                 if (fname.StartsWith("."))
                     continue;
                 System.IO.File.Delete(fpath);
-//                Console.WriteLine("[TRACE], cleanup, file {0}", fname);
+                Log.Trace("cleanup, file {0}", fname);
             }
         }
 

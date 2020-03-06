@@ -2,7 +2,7 @@
 
 namespace RepositoryLib
 {
-    class Log
+    public class Log
     {
         public enum LOGLEVEL
         {
@@ -15,6 +15,13 @@ namespace RepositoryLib
         };
 
         static public LOGLEVEL LogLevel { get { return _logLevel; } set { _logLevel = value;  } } 
+
+        static public bool Initialize(LOGLEVEL logLevel)
+        {
+            Log.Debug("Log.Initialize called, logLevel {0}", logLevel);
+            LogLevel = logLevel;
+            return true;
+        }
         static public void Debug(string format, params object[] args)
         {
             log(LOGLEVEL.DEBUG, format, args);
