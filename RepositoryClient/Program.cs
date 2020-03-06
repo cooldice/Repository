@@ -9,7 +9,7 @@ namespace RepositoryClient
         {
             Console.WriteLine("Repository Client");
 
-            Log.Initialize(Log.LOGLEVEL.DEBUG);
+            Log.Initialize(Log.LOGLEVEL.TRACE);
 
             // set path
             _samplePath = @"..\..\..\..\sample\";
