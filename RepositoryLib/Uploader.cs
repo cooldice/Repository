@@ -40,7 +40,7 @@ namespace RepositoryLib
                 return false;
             }
 
-            Log.Trace("Uploader.Upload, success, path {0}, uploadPath {1}", path, uploadPath);
+            Log.Debug("Uploader.Upload, success, path {0}, uploadPath {1}", path, uploadPath);
             return true;
         }
     }

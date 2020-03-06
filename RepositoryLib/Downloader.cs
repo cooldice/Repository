@@ -7,6 +7,8 @@ namespace RepositoryLib
     {
         static public bool Download(string rootPath, string uri)
         {
+            Log.Trace("Downloader.Download called, rootpath, {0} uri {1}", rootPath, uri);
+
             // check root path
             if (!checkDirectory(rootPath))
             {
